@@ -8,7 +8,7 @@
         <!--Login-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" userLabel="Login" customClass="ViewController" customModule="ToDoListLoginSolo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" userLabel="Login" customClass="LoginViewController" customModule="ToDoListLoginSolo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -18,24 +18,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgJ-zA-7vu" userLabel="Login Panel" customClass="ToDoView" customModule="ToDoListLoginSolo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="80" width="568" height="400"/>
+                                <rect key="frame" x="16" y="80" width="568" height="500"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login To-Do App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-55-StV">
                                         <rect key="frame" x="166" y="50" width="237" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H89-TH-Lsm">
+                                        <rect key="frame" x="274" y="119" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email your password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ja8-IY-FJF">
-                                        <rect key="frame" x="8" y="199" width="552" height="80"/>
+                                        <rect key="frame" x="8" y="249" width="552" height="80"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="hiZ-q3-uhj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="M7Y-v4-FGc"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmZ-in-2dm">
-                                        <rect key="frame" x="8" y="279" width="552" height="80"/>
+                                        <rect key="frame" x="8" y="329" width="552" height="80"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="hq3-Qf-GaL"/>
@@ -45,15 +51,21 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onLoginButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NyP-Db-elq"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email your address" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ggk-89-qMA">
-                                        <rect key="frame" x="8" y="119" width="552" height="80"/>
+                                        <rect key="frame" x="8" y="169" width="552" height="80"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="WP3-qp-B6x"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="Zlz-iA-zmj"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +74,9 @@
                                     <constraint firstAttribute="trailing" secondItem="XmZ-in-2dm" secondAttribute="trailing" constant="267" id="3v0-Rb-wdu"/>
                                     <constraint firstAttribute="trailing" secondItem="Ggk-89-qMA" secondAttribute="trailing" constant="8" id="A7L-Dt-dVI"/>
                                     <constraint firstAttribute="trailing" secondItem="XmZ-in-2dm" secondAttribute="trailing" constant="8" id="C2K-TG-CYZ"/>
+                                    <constraint firstItem="H89-TH-Lsm" firstAttribute="top" secondItem="bO6-55-StV" secondAttribute="bottom" constant="30" id="CDN-W7-61R"/>
                                     <constraint firstItem="Ja8-IY-FJF" firstAttribute="leading" secondItem="RgJ-zA-7vu" secondAttribute="leading" constant="8" id="Ct4-FU-Rr3"/>
+                                    <constraint firstItem="Ggk-89-qMA" firstAttribute="top" secondItem="H89-TH-Lsm" secondAttribute="bottom" constant="30" id="GdP-pE-ODl"/>
                                     <constraint firstItem="bO6-55-StV" firstAttribute="top" secondItem="RgJ-zA-7vu" secondAttribute="top" constant="50" id="Jur-Zx-G70"/>
                                     <constraint firstAttribute="centerX" secondItem="Ggk-89-qMA" secondAttribute="centerX" id="KUi-W7-uhN"/>
                                     <constraint firstItem="Ja8-IY-FJF" firstAttribute="top" secondItem="Ggk-89-qMA" secondAttribute="bottom" id="N34-iw-FTZ"/>
@@ -72,12 +86,13 @@
                                     <constraint firstItem="Ggk-89-qMA" firstAttribute="leading" secondItem="RgJ-zA-7vu" secondAttribute="leading" constant="8" id="cA3-rt-bLn"/>
                                     <constraint firstItem="XmZ-in-2dm" firstAttribute="top" secondItem="Ja8-IY-FJF" secondAttribute="bottom" id="cQz-wy-OfL"/>
                                     <constraint firstAttribute="centerX" secondItem="bO6-55-StV" secondAttribute="centerX" id="em1-Kz-8EM"/>
-                                    <constraint firstAttribute="height" constant="400" id="fAU-4x-haV"/>
+                                    <constraint firstAttribute="height" constant="500" id="fAU-4x-haV"/>
                                     <constraint firstAttribute="centerX" secondItem="XmZ-in-2dm" secondAttribute="centerX" id="iQI-Ft-RZ4"/>
-                                    <constraint firstItem="Ggk-89-qMA" firstAttribute="top" secondItem="bO6-55-StV" secondAttribute="bottom" constant="30" id="o6v-9D-uPZ"/>
+                                    <constraint firstItem="Ggk-89-qMA" firstAttribute="leading" secondItem="H89-TH-Lsm" secondAttribute="trailing" constant="-286" id="nrS-0x-ef9"/>
                                     <constraint firstAttribute="height" constant="308" id="qj7-G3-WMt"/>
                                     <constraint firstAttribute="centerX" secondItem="Ja8-IY-FJF" secondAttribute="centerX" id="r5r-M9-D0I"/>
                                     <constraint firstAttribute="width" constant="400" id="spr-Oe-ujB"/>
+                                    <constraint firstAttribute="centerX" secondItem="H89-TH-Lsm" secondAttribute="centerX" id="yQ4-U9-THC"/>
                                     <constraint firstAttribute="width" constant="320" id="z15-bE-Ssw"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -124,6 +139,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="OdJ-21-apg"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="H89-TH-Lsm" id="tfl-f5-NXt"/>
+                        <outlet property="emailTextField" destination="Ggk-89-qMA" id="IDi-vc-TBB"/>
+                        <outlet property="loginButton" destination="XmZ-in-2dm" id="l2g-yh-Xbb"/>
+                        <outlet property="passwordTextField" destination="Ja8-IY-FJF" id="bac-gE-nRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
