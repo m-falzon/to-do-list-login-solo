@@ -21,7 +21,7 @@
                                 <rect key="frame" x="290" y="183" width="20" height="20"/>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email your password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ja8-IY-FJF">
-                                <rect key="frame" x="0.0" y="233" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="313" width="600" height="80"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6aF-44-FBH"/>
@@ -53,18 +53,6 @@
                                     <action selector="onLoginButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NyP-Db-elq"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email your address" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ggk-89-qMA">
-                                <rect key="frame" x="0.0" y="313" width="600" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="mXa-dZ-npL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Zlz-iA-zmj"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To-Do List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-55-StV">
                                 <rect key="frame" x="233" y="114" width="135" height="39"/>
                                 <constraints>
@@ -79,6 +67,18 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email your email address" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ggk-89-qMA">
+                                <rect key="frame" x="0.0" y="233" width="600" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="mXa-dZ-npL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Zlz-iA-zmj"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -100,18 +100,24 @@
                             <constraint firstItem="Ja8-IY-FJF" firstAttribute="top" secondItem="H89-TH-Lsm" secondAttribute="bottom" constant="30" id="k0X-SH-9bE"/>
                             <constraint firstItem="Ggk-89-qMA" firstAttribute="top" secondItem="Ja8-IY-FJF" secondAttribute="bottom" id="kzZ-P3-obN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ja8-IY-FJF" secondAttribute="trailing" constant="-16" id="oaF-LM-ftL"/>
+                            <constraint firstItem="Ggk-89-qMA" firstAttribute="top" secondItem="H89-TH-Lsm" secondAttribute="bottom" constant="30" id="qKH-iR-9nt"/>
+                            <constraint firstItem="XmZ-in-2dm" firstAttribute="top" secondItem="Ja8-IY-FJF" secondAttribute="bottom" id="tQZ-mC-8pJ"/>
                             <constraint firstAttribute="centerX" secondItem="Ja8-IY-FJF" secondAttribute="centerX" id="tQp-RR-UzA"/>
+                            <constraint firstItem="Ja8-IY-FJF" firstAttribute="top" secondItem="Ggk-89-qMA" secondAttribute="bottom" id="vBh-iQ-gc4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bO6-55-StV" secondAttribute="trailing" constant="134" id="xhq-pq-txE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Aai-zx-r9j"/>
-                                <exclude reference="S6a-hR-MfJ"/>
-                                <exclude reference="tQp-RR-UzA"/>
+                                <exclude reference="kzZ-P3-obN"/>
                                 <exclude reference="VPa-9Z-Jox"/>
                                 <exclude reference="xhq-pq-txE"/>
+                                <exclude reference="Aai-zx-r9j"/>
+                                <exclude reference="S6a-hR-MfJ"/>
+                                <exclude reference="k0X-SH-9bE"/>
+                                <exclude reference="tQp-RR-UzA"/>
                                 <exclude reference="FoH-Wo-5h4"/>
                                 <exclude reference="Lps-aT-QF5"/>
+                                <exclude reference="Atw-dD-7qf"/>
                             </mask>
                         </variation>
                     </view>
